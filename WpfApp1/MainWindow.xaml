@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="MW_OnLoaded">
     <Grid>
-        
+        <Label Content="Исполнитель" HorizontalAlignment="Left" Margin="25,22,0,0" VerticalAlignment="Top" Width="119"/>
+        <TextBox x:Name="ArtistNameText" HorizontalAlignment="Left" Height="23" Margin="110,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="242"/>
+        <Label Content="Название" HorizontalAlignment="Left" Margin="384,22,0,0" VerticalAlignment="Top" Width="88"/>
+        <TextBox x:Name="TrackNameText" HorizontalAlignment="Left" Height="23" Margin="450,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="214"/>
+        <DataGrid x:Name="Grid" HorizontalAlignment="Left" Height="356" Margin="10,53,0,0" VerticalAlignment="Top" Width="772" ItemsSource="{Binding TrackList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="30" Binding="{Binding TrackId}"/>
+                <DataGridTextColumn Header="Исполнитель" Width="*" Binding="{Binding ArtistName}"/>
+                <DataGridTextColumn Header="Название" Width="*" Binding="{Binding TrackName}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="686,25,0,0" VerticalAlignment="Top" Width="74" Height="23" Click="AddButton_Click"/>
+
     </Grid>
 </Window>
